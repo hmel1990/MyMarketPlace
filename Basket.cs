@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FormMarket
-{
+{ 
     internal class Basket
     {
         //internal DataTable tableBasketProducts;
