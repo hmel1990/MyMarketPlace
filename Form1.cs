@@ -67,6 +67,7 @@ namespace FormMarket
             switchToAdminMode.Hide();
             switchToSellerMode.Hide();
             logOutButton.Hide();
+            BasketButton.Hide();
 
             this.BackColor = Color.FromArgb(245, 245, 220);
 
@@ -116,6 +117,8 @@ namespace FormMarket
                 switchToAdminMode.Show();
                 switchToSellerMode.Show();
                 logOutButton.Show();
+                BasketButton.Show();
+
                 this.BackColor = Color.FromArgb(250, 240, 230);
             }
             else
@@ -149,6 +152,8 @@ namespace FormMarket
                 label1.Show();
                 buttonRefresh.Show();
                 logOutButton.Show();
+                BasketButton.Show();
+
             }
             else
             {
@@ -210,6 +215,18 @@ namespace FormMarket
             }
 
         }
+
+        //BasketButton
+        private void BasketButton_Click(object sender, EventArgs e)
+        {
+
+                // Создаем экземпляр 4 формы
+                Form4 form4 = new Form4();
+                form4.Show();
+
+
+        }
+
 
         //Кнопка поиска товара
         private void buttonSearch_Click(object sender, EventArgs e)

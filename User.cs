@@ -12,6 +12,8 @@ namespace FormMarket
 {
     public class User
     {
+        public static int id_id;
+
         private string pathToUsersData = "E:\\STEP\\C_sharp .Net\\MarketPlace\\MarketplaceProject\\bin\\Debug\\net9.0-windows\\loginPassword.txt";
 
         internal LoginPassword currentUserLoginPassword = new LoginPassword();
@@ -82,6 +84,7 @@ namespace FormMarket
                     loginSetter(loginUser);
                     passwordSetter(passwordUser);
                     idSetter(lp.userID);
+                    id_id = Convert.ToInt32(lp.userID);
                      /*
                     //______________________________________________________________________________________
                        switch (currentUserLoginPassword.access)
@@ -107,7 +110,7 @@ namespace FormMarket
                     }
                     //______________________________________________________________________________________
                       */
-                   
+
 
                     //Console.WriteLine("Все ОК!!!");
                     return true;

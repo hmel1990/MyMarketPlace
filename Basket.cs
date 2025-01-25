@@ -137,6 +137,22 @@ namespace FormMarket
                 return view;
             }
         }
+
+
+        ///////////////////////////////////////////////////////////////////////////////////////////
+
+        //для отображения корзины одного пользователя
+        public DataView ProductsInBasketByUserId(int id, DataGridView dataGridViewBasket)
+        {          
+                // Создать DataView из оригинальной таблицы
+                DataView view = tableProductsInBasket.DefaultView;
+                view.RowFilter = $"Convert(Id, 'System.String') LIKE '{id}'";
+                // Привязать отфильтрованные данные к DataGridView
+                dataGridViewBasket.DataSource = view;
+                return view;
+        }
+
+
         ///////////////////////////////////////////////////////////////////////////////////////////
         public int UpdateFilteredSum(DataView view)
         {

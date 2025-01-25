@@ -139,7 +139,7 @@ namespace FormMarket
 
         public void SaveDataGridViewToFile()
         {
-            using (var writer = new StreamWriter("market_goods.txt"))
+            using (var writer = new StreamWriter(pathToProducts))
             {
                 // Запись заголовков
                 var headers = string.Join("\t", tableProducts.Columns.Cast<DataColumn>().Select(column => column.ColumnName));

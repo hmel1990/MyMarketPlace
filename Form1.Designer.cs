@@ -47,6 +47,7 @@
             buttonRefresh = new Button();
             switchToSellerMode = new Button();
             logOutButton = new Button();
+            BasketButton = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -266,6 +267,21 @@
             logOutButton.UseVisualStyleBackColor = false;
             logOutButton.Click += logOutButton_Click;
             // 
+            // BasketButton
+            // 
+            BasketButton.FlatAppearance.BorderColor = Color.MediumSlateBlue;
+            BasketButton.FlatAppearance.BorderSize = 2;
+            BasketButton.FlatStyle = FlatStyle.Flat;
+            BasketButton.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            BasketButton.ForeColor = Color.MediumSlateBlue;
+            BasketButton.Location = new Point(1500, 203);
+            BasketButton.Name = "BasketButton";
+            BasketButton.Size = new Size(233, 59);
+            BasketButton.TabIndex = 4;
+            BasketButton.Text = "Basket";
+            BasketButton.UseVisualStyleBackColor = true;
+            BasketButton.Click += BasketButton_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
@@ -283,6 +299,7 @@
             Controls.Add(comboBoxFilter);
             Controls.Add(ResetButton);
             Controls.Add(buttonSearch);
+            Controls.Add(BasketButton);
             Controls.Add(buttonToBuy);
             Controls.Add(RegistrationButton);
             Controls.Add(loginbutton);
@@ -322,5 +339,6 @@
         private Button buttonRefresh;
         private Button switchToSellerMode;
         private Button logOutButton;
+        private Button BasketButton;
     }
 }
