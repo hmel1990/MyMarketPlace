@@ -33,9 +33,10 @@ namespace FormMarket
                 {
                     cellValue += dataGridView1.CurrentRow.Cells[i].Value?.ToString() + "\t";//!!!!!!! значение и которое потом запишется в тхт файл корзины)
                 }                
-                cellValue = (user.currentUserLoginPassword.userID + "\t" + cellValue);
                 MessageBox.Show($"Содержимое первой ячейки строки скопировано: {cellValue}");
                 FileManager fm = new FileManager();
+                //int number = fm.readStringsFromFile(pathToBasket).Length+1;
+                cellValue = (user.currentUserLoginPassword.userID + "\t" + cellValue);
                 fm.addStringToFile(pathToBasket,cellValue);
                 cellValue = "";
             }
@@ -54,6 +55,8 @@ namespace FormMarket
             tableBasketProducts.Columns.Add("Memory", typeof(int));
             tableBasketProducts.Columns.Add("Quantity", typeof(int));
             tableBasketProducts.Columns.Add("Price (USD)", typeof(int));
+            tableBasketProducts.Columns.Add("Number", typeof(int));
+
         }
         public void fillBasket(DataTable tableBasketProducts)
         {
@@ -68,7 +71,7 @@ namespace FormMarket
             {
                 string[] values = lines[i].Split('\t');
                 // Заполнение таблицы
-                tableBasketProducts.Rows.Add(Convert.ToInt32(values[0]), values[1], values[2], values[3], Convert.ToInt32(values[4]), Convert.ToInt32(values[5]), Convert.ToInt32(values[6]));
+                tableBasketProducts.Rows.Add(Convert.ToInt32(values[0]), values[1], values[2], values[3], Convert.ToInt32(values[4]), Convert.ToInt32(values[5]), Convert.ToInt32(values[6]), i);
             }
         }
 

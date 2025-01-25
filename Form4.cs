@@ -37,7 +37,7 @@ namespace FormMarket
             // Проверяем, что выбрана строка
             if (dataGridViewBasket.CurrentRow != null)
             {
-                int index = (dataGridViewBasket.CurrentRow.Index + 1);
+                int index = Convert.ToInt32(dataGridViewBasket.CurrentRow.Cells[7].Value);
                 basket.deleteProductFromBasket(index);
             }
             else
