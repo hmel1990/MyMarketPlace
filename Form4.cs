@@ -27,7 +27,7 @@ namespace FormMarket
             basket = new Basket();
             fileManager = new FileManager();
             tableBasketProducts = basket.tableProductsInBasket;
-            basket.ProductsInBasketByUserId(User.id_id, dataGridViewBasket);            
+            basket.ProductsInBasketByUserId(User.id_id, dataGridViewBasket);
         }
 
         private void ButtonSwitchToMain_Click(object sender, EventArgs e)
@@ -41,7 +41,7 @@ namespace FormMarket
             if (dataGridViewBasket.CurrentRow != null)
             {
                 int index = Convert.ToInt32(dataGridViewBasket.CurrentRow.Cells[7].Value);
-                fileManager.deleteProductFromBasket(index,pathToBusket);
+                fileManager.deleteProductFromBasket(index, pathToBusket);
             }
             else
             {
@@ -77,6 +77,7 @@ namespace FormMarket
             FileManager fm = new FileManager();
             fm.writeUsersGridViewToFile(tableBasketProducts, pathToBusket);
         }
+
 
     }
 }

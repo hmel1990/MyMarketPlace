@@ -56,12 +56,13 @@
             dataGridViewBasket.Location = new Point(869, 351);
             dataGridViewBasket.Name = "dataGridViewBasket";
             dataGridViewBasket.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dataGridViewBasket.Size = new Size(1294, 876);
+            dataGridViewBasket.Size = new Size(1564, 390);
             dataGridViewBasket.TabIndex = 6;
             // 
             // BasketSellerLabel
             // 
             BasketSellerLabel.AutoSize = true;
+            BasketSellerLabel.FlatStyle = FlatStyle.Flat;
             BasketSellerLabel.Font = new Font("Times New Roman", 19.875F, FontStyle.Bold, GraphicsUnit.Point, 204);
             BasketSellerLabel.ForeColor = Color.FromArgb(255, 128, 0);
             BasketSellerLabel.Location = new Point(1524, 144);
@@ -105,6 +106,7 @@
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(192, 192, 255);
             ClientSize = new Size(2967, 1711);
             Controls.Add(BasketSellerLabel);
             Controls.Add(RefreshBasketProductsGrid);
