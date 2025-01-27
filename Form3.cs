@@ -18,6 +18,7 @@ namespace FormMarket
 
         internal Seller seller;
         internal Admin admin;
+        internal FileManager fileManager;
 
         private string pathToUsers = "loginPassword.txt";
         private string pathToProducts = "market_goods.txt";
@@ -31,9 +32,10 @@ namespace FormMarket
             seller = new Seller();
             admin = new Admin();
             shop = new Shop();
+            basket = new Basket();
+            fileManager = new FileManager();
             tableProducts = shop.table;
             dataGridViewProducts.DataSource = tableProducts;
-            basket = new Basket();
             tableBasketProducts = basket.tableProductsInBasket;
             dataGridViewBasket.DataSource = tableBasketProducts;
             basket.addFilteringProducts(comboBoxFilter);
@@ -116,7 +118,7 @@ namespace FormMarket
             if (dataGridViewBasket.CurrentRow != null)
             {
                 int index = (dataGridViewBasket.CurrentRow.Index + 1);
-                basket.deleteProductFromBasket(index);
+                fileManager.deleteProductFromBasket(index, pathToBusket);
             }
             else
             {

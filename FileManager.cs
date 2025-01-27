@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Windows.Forms.LinkLabel;
 
 namespace FormMarket
 {
@@ -64,6 +65,36 @@ namespace FormMarket
                 }
             }
         }
+
+        public void writeLinesToFile(string pathToFile, List<string> lst)
+        {
+            File.WriteAllLines(pathToFile, lst);
+        }
+
+
+        public void deleteProductFromBasket(int index, string pathToFile)
+        {
+            FileManager fileManager = new FileManager();
+
+            var lines = fileManager.readStringsFromFile(pathToFile).ToList();
+
+            // Проверяем, корректен ли номер строки
+            if (index < 1 || index > lines.Count)
+            {
+                Console.WriteLine("Номер строки вне диапазона.");
+                return;
+            }
+
+            // Удаляем строку с указанным номером (индекс на 1 меньше, так как индексация с 0)
+            lines.RemoveAt(index);
+
+            // Перезаписываем файл без удалённой строки
+            //File.WriteAllLines(pathToBasket, lines);
+            fileManager.writeLinesToFile(pathToFile, lines);
+
+            //Console.WriteLine($"Строка {index} успешно удалена.");
+        }
+
     }
 
 }

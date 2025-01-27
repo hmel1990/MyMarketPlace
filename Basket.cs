@@ -75,34 +75,7 @@ namespace FormMarket
             }
         }
 
-        public void deleteProductFromBasket(int index)
-        {
-            // Проверяем, существует ли файл
-            if (!File.Exists(pathToBasket))
-            {
-                Console.WriteLine("Файл не найден.");
-                return;
-            }
-
-            // Читаем все строки из файла
-            var lines = File.ReadAllLines(pathToBasket).ToList();
-
-            // Проверяем, корректен ли номер строки
-            if (index < 1 || index > lines.Count)
-            {
-                Console.WriteLine("Номер строки вне диапазона.");
-                return;
-            }
-
-            // Удаляем строку с указанным номером (индекс на 1 меньше, так как индексация с 0)
-            lines.RemoveAt(index);
-
-            // Перезаписываем файл без удалённой строки
-            File.WriteAllLines(pathToBasket, lines);
-
-            //Console.WriteLine($"Строка {index} успешно удалена.");
-        }
-
+        
 
         public void addFilteringProducts(ComboBox comboBoxFilter)
         {

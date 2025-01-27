@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Intrinsics.X86;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,12 +18,14 @@ namespace FormMarket
         internal Shop shop;
         internal Basket basket;
         internal User user;
+        internal FileManager fileManager;
 
         public Form4()
         {
             InitializeComponent();
 
             basket = new Basket();
+            fileManager = new FileManager();
             tableBasketProducts = basket.tableProductsInBasket;
             basket.ProductsInBasketByUserId(User.id_id, dataGridViewBasket);            
         }
@@ -38,7 +41,7 @@ namespace FormMarket
             if (dataGridViewBasket.CurrentRow != null)
             {
                 int index = Convert.ToInt32(dataGridViewBasket.CurrentRow.Cells[7].Value);
-                basket.deleteProductFromBasket(index);
+                fileManager.deleteProductFromBasket(index,pathToBusket);
             }
             else
             {
