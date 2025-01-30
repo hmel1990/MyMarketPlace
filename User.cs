@@ -157,6 +157,7 @@ namespace FormMarket
                 usersLoginPasswordList[(usersLoginPasswordList.Count() - 1)].password = currentUserLoginPassword.password;   //заполняем новый объект в массиве
                 usersLoginPasswordList[(usersLoginPasswordList.Count() -1)].userID = Convert.ToString(usersLoginPasswordList.Count());
                 File.AppendAllText(pathToUsersData, currentUserLoginPassword.access + "\t" + currentUserLoginPassword.login + "\t" + currentUserLoginPassword.password + "\t" + currentUserLoginPassword.userID + "\n"); //записываем строку с новым пользователев в тхт файл
+                User.id_id = usersLoginPasswordList.Count();
 
                 return true;
             }

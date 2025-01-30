@@ -74,7 +74,7 @@
             // 
             // RefreshBasketProductsGrid
             // 
-            RefreshBasketProductsGrid.Location = new Point(1425, 255);
+            RefreshBasketProductsGrid.Location = new Point(1145, 255);
             RefreshBasketProductsGrid.Name = "RefreshBasketProductsGrid";
             RefreshBasketProductsGrid.Size = new Size(222, 46);
             RefreshBasketProductsGrid.TabIndex = 7;
@@ -84,11 +84,11 @@
             // 
             // saveUsersToFile
             // 
-            saveUsersToFile.Location = new Point(1157, 255);
+            saveUsersToFile.Location = new Point(1421, 255);
             saveUsersToFile.Name = "saveUsersToFile";
             saveUsersToFile.Size = new Size(222, 46);
             saveUsersToFile.TabIndex = 8;
-            saveUsersToFile.Text = "Save";
+            saveUsersToFile.Text = "Complete order";
             saveUsersToFile.UseVisualStyleBackColor = true;
             saveUsersToFile.Click += saveProductsToBascketFile_Click;
             // 

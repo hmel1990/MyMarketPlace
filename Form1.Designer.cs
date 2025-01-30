@@ -48,7 +48,9 @@
             switchToSellerMode = new Button();
             logOutButton = new Button();
             BasketButton = new Button();
+            pictureBox1 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // switchToAdminMode
@@ -282,6 +284,17 @@
             BasketButton.UseVisualStyleBackColor = true;
             BasketButton.Click += BasketButton_Click;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.FromArgb(192, 192, 255);
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(32, 89);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(437, 434);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 10;
+            pictureBox1.TabStop = false;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
@@ -290,6 +303,7 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(3154, 1785);
+            Controls.Add(pictureBox1);
             Controls.Add(buttonRefresh);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -315,6 +329,7 @@
             WindowState = FormWindowState.Maximized;
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -340,5 +355,6 @@
         private Button switchToSellerMode;
         private Button logOutButton;
         private Button BasketButton;
+        private PictureBox pictureBox1;
     }
 }

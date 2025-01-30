@@ -9,7 +9,6 @@ namespace FormMarket
 {
     public class Admin: FormMarket.User
     {
-        //private List<Product> adminBasketProducts = new List<Product>();
         private string pathToUsersData = "E:\\STEP\\C_sharp .Net\\MarketPlace\\MarketplaceProject\\bin\\Debug\\net9.0-windows\\loginPassword.txt";
 
         internal List<LoginPassword> listOfUsers = new List<LoginPassword>();

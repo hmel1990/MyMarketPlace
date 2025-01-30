@@ -41,6 +41,7 @@
             labelFilteredSum = new Label();
             ShopSellerLabel = new Label();
             BasketSellerLabel = new Label();
+            textBox1 = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dataGridViewProducts).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewBasket).BeginInit();
             SuspendLayout();
@@ -177,12 +178,25 @@
             BasketSellerLabel.Text = "Basket";
             BasketSellerLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // textBox1
+            // 
+            textBox1.BackColor = Color.FromArgb(255, 224, 192);
+            textBox1.BorderStyle = BorderStyle.None;
+            textBox1.Font = new Font("Times New Roman", 32F);
+            textBox1.ForeColor = Color.SlateBlue;
+            textBox1.Location = new Point(1724, 118);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(438, 99);
+            textBox1.TabIndex = 13;
+            textBox1.Text = "Seller Mode";
+            // 
             // Form3
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 224, 192);
             ClientSize = new Size(3458, 1811);
+            Controls.Add(textBox1);
             Controls.Add(BasketSellerLabel);
             Controls.Add(ShopSellerLabel);
             Controls.Add(labelFilteredSum);
@@ -221,5 +235,6 @@
         private Label labelFilteredSum;
         private Label ShopSellerLabel;
         private Label BasketSellerLabel;
+        private TextBox textBox1;
     }
 }

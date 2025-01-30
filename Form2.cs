@@ -120,7 +120,8 @@ namespace FormMarket
                 // Обновляем данные в таблице
                 tableUsers.Clear();
 
-                Admin admin = new Admin();
+                //Admin admin = new Admin();
+                admin.listOfUsers.Clear();
                 admin.usersToList();
 
                 foreach (var adm in admin.listOfUsers)
@@ -203,7 +204,7 @@ namespace FormMarket
             // Проверяем, что выбрана строка
             if (dataGridViewBasket.CurrentRow != null)
             {
-                int index = (dataGridViewBasket.CurrentRow.Index + 1);
+                int index = (dataGridViewBasket.CurrentRow.Index);//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 fileManager.deleteProductFromBasket(index, pathToBusket);
             }
             else

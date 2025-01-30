@@ -33,10 +33,10 @@ namespace FormMarket
                 {
                     cellValue += dataGridView1.CurrentRow.Cells[i].Value?.ToString() + "\t";//!!!!!!! значение и которое потом запишется в тхт файл корзины)
                 }                
-                MessageBox.Show($"Содержимое первой ячейки строки скопировано: {cellValue}");
+                MessageBox.Show($"Товар добавлен в корзину: {cellValue}");
                 FileManager fm = new FileManager();
                 //int number = fm.readStringsFromFile(pathToBasket).Length+1;
-                cellValue = (user.currentUserLoginPassword.userID + "\t" + cellValue);
+                cellValue = (user.currentUserLoginPassword.userID + "\t" + cellValue + (tableProductsInBasket.Rows.Count+1));//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 fm.addStringToFile(pathToBasket,cellValue);
                 cellValue = "";
             }
@@ -67,7 +67,7 @@ namespace FormMarket
 
             // Заполняем массив данными из файла (i = 1 т.к. первая строка в тхт файле это шапка таблицы)
 
-            for (int i = 1; i < lines.Length; i++)
+            for (int i = 1; i < lines.Length; i++)//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             {
                 string[] values = lines[i].Split('\t');
                 // Заполнение таблицы

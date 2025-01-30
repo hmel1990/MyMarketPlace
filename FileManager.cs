@@ -51,7 +51,7 @@ namespace FormMarket
 
         public void writeUsersGridViewToFile(DataTable tableUsers, string pathToProducts)
         {
-            using (var writer = new StreamWriter(pathToProducts))
+            using (var writer = new StreamWriter(pathToProducts, false))//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             {
                 // Запись заголовков
                 var headers = string.Join("\t", tableUsers.Columns.Cast<DataColumn>().Select(column => column.ColumnName));

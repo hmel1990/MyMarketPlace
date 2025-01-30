@@ -46,6 +46,7 @@
             BasketLabel = new Label();
             ShopLabel = new Label();
             UsersLabel = new Label();
+            textBox1 = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dataGridViewProducts).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewUsers).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewBasket).BeginInit();
@@ -232,10 +233,22 @@
             UsersLabel.Font = new Font("Times New Roman", 19.875F, FontStyle.Bold, GraphicsUnit.Point, 204);
             UsersLabel.Location = new Point(1563, 1352);
             UsersLabel.Name = "UsersLabel";
-            UsersLabel.Size = new Size(246, 61);
+            UsersLabel.Size = new Size(223, 61);
             UsersLabel.TabIndex = 11;
-            UsersLabel.Text = "UsereList";
+            UsersLabel.Text = "UserList";
             UsersLabel.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // textBox1
+            // 
+            textBox1.BackColor = Color.FromArgb(230, 230, 255);
+            textBox1.BorderStyle = BorderStyle.None;
+            textBox1.Font = new Font("Times New Roman", 32F);
+            textBox1.ForeColor = Color.OrangeRed;
+            textBox1.Location = new Point(1403, 65);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(472, 99);
+            textBox1.TabIndex = 12;
+            textBox1.Text = "Admin Mode";
             // 
             // Form2
             // 
@@ -243,6 +256,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(230, 230, 255);
             ClientSize = new Size(3362, 1814);
+            Controls.Add(textBox1);
             Controls.Add(UsersLabel);
             Controls.Add(ShopLabel);
             Controls.Add(BasketLabel);
@@ -294,5 +308,6 @@
         private Label BasketLabel;
         private Label ShopLabel;
         private Label UsersLabel;
+        private TextBox textBox1;
     }
 }

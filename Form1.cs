@@ -343,6 +343,8 @@ namespace FormMarket
             logOutButton.Hide();
             loginField.Clear();
             passwordField.Clear();
+            BasketButton.Hide();
+
             this.BackColor = Color.FromArgb(250, 240, 230);
         }
     }
