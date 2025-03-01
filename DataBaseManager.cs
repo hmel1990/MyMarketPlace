@@ -14,7 +14,6 @@ namespace FormMarket
     {
         private string connectionString = "Server=localhost; Database=UsersData; Integrated Security=True; TrustServerCertificate=True;";
 
-        private string query = "SELECT ID, Username, Password, Access FROM login_password";
 
         private string query2 = "SELECT * FROM login_password WHERE Username = @Username AND Password = @Password";
 
@@ -22,50 +21,40 @@ namespace FormMarket
 
 
 
+        private string query = "SELECT ID, Access FROM login_password WHERE Username = @Username AND Password = @Password";
 
-        public LoginPassword GetUser()
+        public void GetUser(string loginUser, string passwordUser)
         {
-           LoginPassword dataUser = new LoginPassword();
-            // создание подключения
             using (var connection = new SqlConnection(connectionString))
             {
                 try
                 {
-                    // открытие соединения с базой данных
                     connection.Open();
 
-                    // создание команды для выполнения запроса
+
                     using (var command = new SqlCommand(query, connection))
                     {
-                        // выполнение команды и чтение данных с помощью SqlDataReader
+                        command.Parameters.AddWithValue("@Username", loginUser);
+                        command.Parameters.AddWithValue("@Password", passwordUser);
                         using (SqlDataReader reader = command.ExecuteReader())
                         {
-                            // проверка, есть ли данные
-                            if (reader.HasRows)
+                            // проверка, есть ли данные/
+                            if (reader.Read())
                             {
-                                // чтение строк данных и вывод на экран
-                                while (reader.Read())
-                                {
-                                    // чтение значений из текущей строки
-                                    dataUser.userID = Convert.ToString(reader.GetInt32(0));  // чтение id
-                                    dataUser.login = reader.GetString(1);  // чтение Username
-                                    dataUser.password = reader.GetString(2);  // чтение password
-                                    dataUser.access = reader.GetString(3);  // чтение Access
-                                }
+                                User.id_id = reader.GetInt32(0);  // чтение id
                             }
                             else
                             {
-                                Console.WriteLine("Нема данных в таблице.");
+                                MessageBox.Show("строка пустая");
                             }
                         }
                     }
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Ошибка: " + ex.Message);
+                    MessageBox.Show("Ошибка: " + ex.Message);
                 }
-            }
-            return dataUser;
+            }        
 
 
         }
@@ -90,6 +79,7 @@ namespace FormMarket
                         {
                             // проверка, есть ли данные/
                             x = reader.HasRows;
+                            //MessageBox.Show(Convert.ToString(x));
                         }
                     } 
                 }
@@ -99,7 +89,7 @@ namespace FormMarket
                 }
             }
 
-
+            //if (x) {GetUser(loginUser, passwordUser); }
             return x;
         }
 

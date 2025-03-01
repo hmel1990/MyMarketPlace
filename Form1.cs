@@ -24,6 +24,8 @@ namespace FormMarket
         private Basket basket;
         private DataBaseManager DBManager;
 
+    
+
         //Конструктор
         public Form1()
         {
@@ -96,8 +98,9 @@ namespace FormMarket
             string passwordUser = passwordField.Text;
 
             //if (user.Autorithation(loginUser, passwordUser))
-            if (DBManager.Autorization (loginUser, passwordUser)) // дописать код который будет заполнять поля в объкете user
+            if (DBManager.Autorization(loginUser, passwordUser)) // дописать код который будет заполнять поля в объкете user
             {
+                DBManager.GetUser(loginUser, passwordUser);
                 //MessageBox.Show("Ok!!");
                 loginbutton.Hide();     //скрываем поле логин
                 loginField.Hide();      //скрываем поле пароль
@@ -120,6 +123,7 @@ namespace FormMarket
                 BasketButton.Show();
 
                 this.BackColor = Color.FromArgb(250, 240, 230);
+                
             }
             else
             {
@@ -222,9 +226,9 @@ namespace FormMarket
         private void BasketButton_Click(object sender, EventArgs e)
         {
 
-                // Создаем экземпляр 4 формы
-                Form4 form4 = new Form4();
-                form4.Show();
+            // Создаем экземпляр 4 формы
+            Form4 form4 = new Form4();
+            form4.Show();
 
 
         }
@@ -348,6 +352,23 @@ namespace FormMarket
             BasketButton.Hide();
 
             this.BackColor = Color.FromArgb(250, 240, 230);
+        }
+
+        private void DowloadPicture_Click(object sender, EventArgs e)
+        {
+            string filePath = "";
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    filePath = openFileDialog.FileName; // Получаем путь к файлу                    
+                }
+            }
+
+            PictureDownload PDD = new PictureDownload();
+            int id = User.id_id;
+            MessageBox.Show(Convert.ToString(id));
+            PDD.SaveImageToDatabase(filePath, id);
         }
     }
 }

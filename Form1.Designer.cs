@@ -49,6 +49,7 @@
             logOutButton = new Button();
             BasketButton = new Button();
             pictureBox1 = new PictureBox();
+            DowloadPicture = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -295,6 +296,16 @@
             pictureBox1.TabIndex = 10;
             pictureBox1.TabStop = false;
             // 
+            // DowloadPicture
+            // 
+            DowloadPicture.Location = new Point(1091, 1197);
+            DowloadPicture.Name = "DowloadPicture";
+            DowloadPicture.Size = new Size(257, 46);
+            DowloadPicture.TabIndex = 11;
+            DowloadPicture.Text = "Dowload Picture";
+            DowloadPicture.UseVisualStyleBackColor = true;
+            DowloadPicture.Click += DowloadPicture_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
@@ -303,6 +314,7 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(3154, 1785);
+            Controls.Add(DowloadPicture);
             Controls.Add(pictureBox1);
             Controls.Add(buttonRefresh);
             Controls.Add(label3);
@@ -356,5 +368,6 @@
         private Button logOutButton;
         private Button BasketButton;
         private PictureBox pictureBox1;
+        private Button DowloadPicture;
     }
 }
