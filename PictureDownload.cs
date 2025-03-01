@@ -52,7 +52,7 @@ namespace FormMarket
         }
 
         // функция для чтения изображения из базы данных
-        public void ReadImageFromDatabase(int imageId)
+        public void ReadImageFromDatabase(int imageId, PictureBox pictureBox)
         {
             try
             {
@@ -61,7 +61,7 @@ namespace FormMarket
                     connection.Open();
 
                     // запрос для получения изображения по ID
-                    string query = "SELECT ImageData, FilePath FROM Images WHERE ImageId = @ImageId";
+                    string query = "SELECT ProfilePicture FROM login_password WHERE ID = @ImageId";
 
                     using (var command = new SqlCommand(query, connection))
                     {
@@ -71,19 +71,15 @@ namespace FormMarket
                         {
                             if (reader.Read())
                             {
-                                byte[] imageData = (byte[])reader["ImageData"];
-                                string filePath = (string)reader["FilePath"];
-
-                                // путь, куда сохранить извлечённое изображение
-                                string savePath = ("C:/Users/Alex/Desktop/image.jpg");
-
-                                // сохраняем файл обратно в файловую систему
-                                File.WriteAllBytes(savePath, imageData);
-                                Console.WriteLine($"Изображение извлечено и сохранено по пути: {savePath}");
+                                byte[] imageData = (byte[])reader["ProfilePicture"];
+                                using (MemoryStream ms = new MemoryStream(imageData))
+                                {
+                                    pictureBox.Image = Image.FromStream(ms); // Загружаем картинку в PictureBox
+                                }
                             }
                             else
                             {
-                                Console.WriteLine("Изображение с таким ID не найдено.");
+                                MessageBox.Show("Изображение с таким ID не найдено.");
                             }
                         }
                     }
@@ -91,7 +87,7 @@ namespace FormMarket
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Ошибка при извлечении изображения из базы: " + ex.Message);
+                //MessageBox.Show("Ошибка при извлечении изображения из базы: " + ex.Message);
             }
         }
     }

@@ -50,8 +50,11 @@
             BasketButton = new Button();
             pictureBox1 = new PictureBox();
             DowloadPicture = new Button();
+            sqlDataAdapter1 = new Microsoft.Data.SqlClient.SqlDataAdapter();
+            pictureBox2 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // switchToAdminMode
@@ -298,13 +301,22 @@
             // 
             // DowloadPicture
             // 
-            DowloadPicture.Location = new Point(1091, 1197);
+            DowloadPicture.Location = new Point(1250, 1727);
             DowloadPicture.Name = "DowloadPicture";
-            DowloadPicture.Size = new Size(257, 46);
+            DowloadPicture.Size = new Size(494, 46);
             DowloadPicture.TabIndex = 11;
             DowloadPicture.Text = "Dowload Picture";
             DowloadPicture.UseVisualStyleBackColor = true;
             DowloadPicture.Click += DowloadPicture_Click;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Location = new Point(1250, 1264);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(494, 447);
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 12;
+            pictureBox2.TabStop = false;
             // 
             // Form1
             // 
@@ -314,6 +326,7 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(3154, 1785);
+            Controls.Add(pictureBox2);
             Controls.Add(DowloadPicture);
             Controls.Add(pictureBox1);
             Controls.Add(buttonRefresh);
@@ -342,6 +355,7 @@
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -369,5 +383,7 @@
         private Button BasketButton;
         private PictureBox pictureBox1;
         private Button DowloadPicture;
+        private Microsoft.Data.SqlClient.SqlDataAdapter sqlDataAdapter1;
+        private PictureBox pictureBox2;
     }
 }

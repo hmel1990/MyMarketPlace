@@ -69,6 +69,9 @@ namespace FormMarket
             switchToSellerMode.Hide();
             logOutButton.Hide();
             BasketButton.Hide();
+            DowloadPicture.Hide();
+            pictureBox2.Hide();
+
 
             this.BackColor = Color.FromArgb(245, 245, 220);
 
@@ -123,7 +126,14 @@ namespace FormMarket
                 BasketButton.Show();
 
                 this.BackColor = Color.FromArgb(250, 240, 230);
-                
+
+
+                pictureBox2.Show();
+                DowloadPicture.Show();
+                int id = User.id_id;
+                PictureDownload PDD = new PictureDownload();
+                PDD.ReadImageFromDatabase(id, pictureBox2);
+
             }
             else
             {
