@@ -73,7 +73,7 @@ namespace FormMarket
         #region регистрация и авторизация
 
 
-        public bool Autorithation(string loginUser, string passwordUser /*User user, ,Admin admin, Seller seller, Customer customer*/) //параметры х у принимаются из виндовс форм
+        public bool Autorithation(string loginUser, string passwordUser ) //параметры х у принимаются из виндовс форм
         {
 
             foreach (LoginPassword lp in usersLoginPasswordList) 
@@ -85,34 +85,6 @@ namespace FormMarket
                     passwordSetter(passwordUser);
                     idSetter(lp.userID);
                     id_id = Convert.ToInt32(lp.userID);
-                     /*
-                    //______________________________________________________________________________________
-                       switch (currentUserLoginPassword.access)
-                    {
-                        case "": // Без сортировки
-                            Console.WriteLine("Пользователь отсутствует");
-                            break;
-                        case "admin": // админ
-                                      //Admin admin = new Admin();
-                            admin.currentUserLoginPassword.access = "admin";
-                            admin.currentUserLoginPassword.userID = currentUserLoginPassword.userID;
-                            break;
-                        case "seller": // продавец
-                                       //Seller seller = new Seller();
-                            seller.currentUserLoginPassword.access = "seller";
-                            seller.currentUserLoginPassword.userID = currentUserLoginPassword.userID;
-                            break;
-                        case "customer": // покупатель
-                                         //Customer customer = new Customer();
-                            customer.currentUserLoginPassword.access = "customer";
-                            customer.currentUserLoginPassword.userID = currentUserLoginPassword.userID;
-                            break;
-                    }
-                    //______________________________________________________________________________________
-                      */
-
-
-                    //Console.WriteLine("Все ОК!!!");
                     return true;
                 }
             }

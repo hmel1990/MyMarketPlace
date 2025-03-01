@@ -22,17 +22,16 @@ namespace FormMarket
         //private Seller seller;
         //private Admin admin;
         private Basket basket;
+        private DataBaseManager DBManager;
 
         //Конструктор
         public Form1()
         {
             InitializeComponent();
             user = new User();// создаем объект User
-            //seller = new Seller();
-            //admin = new Admin();
-            //customer = new Customer();
             shop = new Shop();
             basket = new Basket();
+            DBManager = new DataBaseManager();
 
 
             // читаем из тхт файла и заполняем в список поля User каталог товаров
@@ -96,7 +95,8 @@ namespace FormMarket
             string loginUser = loginField.Text;
             string passwordUser = passwordField.Text;
 
-            if (user.Autorithation(loginUser, passwordUser /*user, ,admin, seller, customer*/))
+            //if (user.Autorithation(loginUser, passwordUser))
+            if (DBManager.Autorization (loginUser, passwordUser)) // дописать код который будет заполнять поля в объкете user
             {
                 //MessageBox.Show("Ok!!");
                 loginbutton.Hide();     //скрываем поле логин
@@ -133,7 +133,9 @@ namespace FormMarket
             string loginUser = loginField.Text;
             string passwordUser = passwordField.Text;
 
-            if (user.Registration(loginUser, passwordUser))
+            //if (user.Registration(loginUser, passwordUser))
+            if (DBManager.Registration(loginUser, passwordUser)) // дописать код который будет заполнять поля в объкете user
+
             {
                 MessageBox.Show("Вы зарегистрированы!!!");
                 loginbutton.Hide();     //скрываем поле логин

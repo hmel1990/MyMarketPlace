@@ -80,7 +80,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="FormMarket.SamsungFactory" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="15.25" Y="4" Width="1.5" />
+    <Position X="15.25" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAIAAAQAA=</HashCode>
       <FileName>SamsungFactory.cs</FileName>
@@ -88,7 +88,7 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="FormMarket.XiaomiFactory" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="13.5" Y="5" Width="1.5" />
+    <Position X="11.25" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAIAAAQAA=</HashCode>
       <FileName>XiaomiFactory.cs</FileName>
@@ -96,7 +96,7 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="FormMarket.AppleFactory" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="13.5" Y="4" Width="1.5" />
+    <Position X="13.25" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAIAAAQAA=</HashCode>
       <FileName>AppleFactory.cs</FileName>
@@ -104,28 +104,28 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Interface Name="FormMarket.IAbstractFactory" Collapsed="true">
-    <Position X="13.5" Y="6.25" Width="1.5" />
+    <Position X="12" Y="6" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAIAAAQAA=</HashCode>
       <FileName>IAbstractFactory.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="FormMarket.IAbstractProductLaptop" Collapsed="true">
-    <Position X="15.25" Y="6.25" Width="1.5" />
+    <Position X="14.25" Y="6" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>IAbstractProductLaptop.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="FormMarket.IAbstractProductPhone" Collapsed="true">
-    <Position X="13.5" Y="7" Width="1.5" />
+    <Position X="12" Y="6.75" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>IAbstractProductPhone.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="FormMarket.IAbstractProductTablet" Collapsed="true">
-    <Position X="15.25" Y="7" Width="1.5" />
+    <Position X="14.25" Y="6.75" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>IAbstractProductTablet.cs</FileName>
