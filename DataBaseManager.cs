@@ -88,7 +88,7 @@ namespace FormMarket
                         command.Parameters.AddWithValue("@Password", passwordUser);
                         using (SqlDataReader reader = command.ExecuteReader())
                         {
-                            // проверка, есть ли данные
+                            // проверка, есть ли данные/
                             x = reader.HasRows;
                         }
                     } 
