@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Data.SqlClient;
 using Microsoft.VisualBasic.ApplicationServices;
 using Microsoft.VisualBasic.Logging;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 
 namespace FormMarket
@@ -23,7 +24,11 @@ namespace FormMarket
 
         private string query = "SELECT ID, Access FROM login_password WHERE Username = @Username AND Password = @Password";
 
-        public void GetUser(string loginUser, string passwordUser)
+
+        /*
+         //метод для ADO.NET
+         
+           public void GetUser(string loginUser, string passwordUser)
         {
             using (var connection = new SqlConnection(connectionString))
             {
@@ -54,13 +59,37 @@ namespace FormMarket
                 {
                     MessageBox.Show("Ошибка: " + ex.Message);
                 }
-            }        
+            }
 
 
         }
+         
+         */
+
+        // метод для Entity Framework
+
+        public void GetUser(string loginUser, string passwordUser)
+        {
+            using var db = new AppDbContext();
+            var manager = new EFCUsersManager();
+            User.id_id = manager.IsUserWithLogingPassword(db, loginUser, passwordUser);
+        }
 
 
-        public bool Autorization (string loginUser, string passwordUser)
+        // метод для Entity Framework
+        public bool Autorization(string loginUser, string passwordUser)
+        {
+            using var db = new AppDbContext();
+            var manager = new EFCUsersManager();
+            if(manager.IsUserWithLogingPassword(db, loginUser, passwordUser)!=0)
+                return true;
+            else {return false;}           
+
+        }
+
+        /*
+         //метод для ADO.NET
+         public bool Autorization (string loginUser, string passwordUser)
         {
             bool x = true;
 
@@ -79,7 +108,6 @@ namespace FormMarket
                         {
                             // проверка, есть ли данные/
                             x = reader.HasRows;
-                            //MessageBox.Show(Convert.ToString(x));
                         }
                     } 
                 }
@@ -89,29 +117,26 @@ namespace FormMarket
                 }
             }
 
-            //if (x) {GetUser(loginUser, passwordUser); }
             return x;
         }
+         
+         */
+
+
+
 
 
         public bool Registration(string loginUser, string passwordUser)
         {
-            using (var connection = new SqlConnection(connectionString))
-            {
                 try
                 {
-                    connection.Open();
 
                     if (!Autorization(loginUser, passwordUser))
                     {
-                        using (var command = new SqlCommand(query3, connection))
-                        {
-                            command.Parameters.AddWithValue("@Username", loginUser);
-                            command.Parameters.AddWithValue("@Password", passwordUser);
-                            command.Parameters.AddWithValue("@Access", "customer");
-
-                            command.ExecuteNonQuery();
-                        }
+                    using var db = new AppDbContext();
+                    var manager = new EFCUsersManager();
+                    var user = new EFCUser (loginUser, passwordUser);
+                    manager.AddUser(db, user);
 
                         return true;
                     }
@@ -120,10 +145,9 @@ namespace FormMarket
 
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Ошибка: " + ex.Message);
+                MessageBox.Show("Ошибка: " + ex.Message);
                     return false;
                 }
-            }
         }
     }
 }

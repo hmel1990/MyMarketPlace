@@ -151,6 +151,8 @@ namespace FormMarket
             if (DBManager.Registration(loginUser, passwordUser)) // дописать код который будет заполнять поля в объкете user
 
             {
+                DBManager.GetUser(loginUser, passwordUser);
+
                 MessageBox.Show("Вы зарегистрированы!!!");
                 loginbutton.Hide();     //скрываем поле логин
                 loginField.Hide();      //скрываем поле пароль
@@ -169,6 +171,8 @@ namespace FormMarket
                 buttonRefresh.Show();
                 logOutButton.Show();
                 BasketButton.Show();
+                pictureBox2.Show();
+                DowloadPicture.Show();
 
             }
             else
@@ -360,6 +364,8 @@ namespace FormMarket
             loginField.Clear();
             passwordField.Clear();
             BasketButton.Hide();
+            pictureBox2.Hide();
+            DowloadPicture.Hide();
 
             this.BackColor = Color.FromArgb(250, 240, 230);
         }

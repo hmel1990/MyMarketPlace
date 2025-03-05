@@ -29,7 +29,7 @@ namespace FormMarket
                     connection.Open();
 
                     // запрос на добавление данных в таблицу
-                    string query = "UPDATE login_password SET FilePath = @FilePath, ProfilePicture = @ProfilePicture WHERE ID = @ID";
+                    string query = "UPDATE Users SET FilePath = @FilePath, ProfilePicture = @ProfilePicture WHERE ID = @ID";
 
                     using (var command = new SqlCommand(query, connection))
                     {
@@ -61,7 +61,7 @@ namespace FormMarket
                     connection.Open();
 
                     // запрос для получения изображения по ID
-                    string query = "SELECT ProfilePicture FROM login_password WHERE ID = @ImageId";
+                    string query = "SELECT ProfilePicture FROM Users WHERE ID = @ImageId";
 
                     using (var command = new SqlCommand(query, connection))
                     {
